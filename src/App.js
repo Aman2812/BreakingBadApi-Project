@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState ,} from 'react';
 import Character from './Character'
 import './App.css'
 import pic from './pic.png'
@@ -7,7 +7,6 @@ import Pagination from './Pagination';
 function App() {
 
  const [info, setInfo] = useState("");
-
  const [print, setPrint] = useState([]);
 
  const [currentPage, setCurrentPage] = useState(1);
@@ -22,13 +21,11 @@ function App() {
   e.preventDefault();
 }
 
-useEffect(() => {
-  fetch(`https://www.breakingbadapi.com/api/characters?name=${info}`)  
+fetch(`https://www.breakingbadapi.com/api/characters?name=${info}`)  
   .then(res=>res.json())
   .then(data=>{
    setPrint(data);
   })
-}, [print])
 
 
   const indexOfLastPost = currentPage * postsPerPage;
